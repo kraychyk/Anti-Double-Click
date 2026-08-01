@@ -1,0 +1,15 @@
+# Build output
+/build/
+*.exe
+*.obj
+*.pdb
+*.lib
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# CMake
+CMakeCache.txt
+CMakeFiles/

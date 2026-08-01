@@ -1,0 +1,19 @@
+#include <windows.h>
+
+#define IDI_APP   101
+#define IDD_INPUT 200
+#define IDC_EDIT  1001
+#define IDC_TEXT  1002
+
+IDI_APP ICON "resources/icon.ico"
+
+IDD_INPUT DIALOGEX 0, 0, 160, 54
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Value"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "Value (ms):", IDC_TEXT, 7, 8, 146, 8
+    EDITTEXT        IDC_EDIT, 7, 20, 146, 12, ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK", IDOK, 25, 40, 50, 14
+    PUSHBUTTON      "Cancel", IDCANCEL, 85, 40, 50, 14
+END
