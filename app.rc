@@ -5,6 +5,10 @@
 #define IDC_EDIT  1001
 #define IDC_TEXT  1002
 
+/* Манифест подключается вручную; в CMakeLists линкер запускается с /MANIFEST:NO,
+   иначе MSVC встроил бы собственный и получилось бы два. */
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"
+
 IDI_APP ICON "resources/icon.ico"
 
 IDD_INPUT DIALOGEX 0, 0, 160, 54
@@ -13,7 +17,36 @@ CAPTION "Value"
 FONT 8, "MS Shell Dlg"
 BEGIN
     LTEXT           "Value (ms):", IDC_TEXT, 7, 8, 146, 8
-    EDITTEXT        IDC_EDIT, 7, 20, 146, 12, ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT, 7, 20, 146, 12, ES_AUTOHSCROLL | ES_NUMBER
     DEFPUSHBUTTON   "OK", IDOK, 25, 40, 50, 14
     PUSHBUTTON      "Cancel", IDCANCEL, 85, 40, 50, 14
+END
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,1,0
+    PRODUCTVERSION  1,0,1,0
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+    FILEFLAGS       0x0L
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName",      "Anti-Double-Click"
+            VALUE "FileDescription",  "Anti-Double-Click - mouse chatter filter"
+            VALUE "FileVersion",      "1.0.1.0"
+            VALUE "InternalName",     "anti-double-click"
+            VALUE "LegalCopyright",   "MIT License"
+            VALUE "OriginalFilename", "anti-double-click.exe"
+            VALUE "ProductName",      "Anti-Double-Click"
+            VALUE "ProductVersion",   "1.0.1.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
 END
