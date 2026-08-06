@@ -53,7 +53,7 @@
 Требуется Windows 10/11, Visual Studio (2019+) с компонентом «Разработка классических приложений на C++» и CMake.
 
 ```bat
-cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+cmake -S . -B build -A x64
 cmake --build build --config Release
 ```
 
